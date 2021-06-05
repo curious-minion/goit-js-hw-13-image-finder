@@ -17,7 +17,7 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/curious-minion/goit-js-hw-13-image-finder"
+    "url": "git+https://github.com/curious-minion/goit-js-hw-13-image-finder"
   },
   "homepage": "https://github.com/curious-minion/goit-js-hw-13-image-finder",
   "devDependencies": {
