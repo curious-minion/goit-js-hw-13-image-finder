@@ -6,16 +6,23 @@ export default class PicturesApiService{
         this.searchQuery = '';
         this.page = 1;
     }
+    
+    
+    async fetchImages() {
+        console.log(this);
 
-    async fetchGallery() {
         const url = `${BASE_URL}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${KEY}`;
         
         const response = await fetch(url);
         const images = await response.json();
-        this.incrementPage();
 
-        return images;
-        // return fetch(url, options).then(response =>
+
+        this.incrementPage();
+        
+      
+        return images.hits;
+        
+        // return fetch(url).then(response =>
         //     response.json()).then(({ pictures }) => {
         //         this.incrementPage();
         //         return pictures;
@@ -24,7 +31,8 @@ export default class PicturesApiService{
     
     incrementPage() {
             this.page += 1;
-        }
+    }
+    
     resetPage() {
             this.page = 1;
     }
