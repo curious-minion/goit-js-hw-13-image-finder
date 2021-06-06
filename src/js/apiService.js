@@ -9,22 +9,19 @@ export default class PicturesApiService{
     
     
     async fetchImages() {
+        try {
         const url = `${BASE_URL}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${KEY}`;
         
         const response = await fetch(url);
         const images = await response.json();
 
-
         this.incrementPage();
-        
-      
         return images.hits;
+            
+        } catch (error) {
+            console.log('Error');
+        }
         
-        // return fetch(url).then(response =>
-        //     response.json()).then(({ pictures }) => {
-        //         this.incrementPage();
-        //         return pictures;
-        //     });
     }
     
     incrementPage() {
