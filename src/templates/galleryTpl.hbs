@@ -1,7 +1,7 @@
 {{#each this}}
 <li class="gallery__item">
     
-    <img class="gallery__image" src={{webformatURL}} data-source={{largeImageURL}} alt="Picture of {{tags}}" />
+    <img loading="lazy" class="gallery__image" src={{webformatURL}} data-source={{largeImageURL}} alt="Picture of {{tags}}" />
     <div class="stats">
     <p class="stats-item">
         <i class="material-icons">thumb_up</i>

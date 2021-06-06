@@ -12,7 +12,8 @@
   </head>
 
   <body>
-    <form class="search-form" id="up">
+    <h1 id="up">Images from Pixabay</h1>
+    <form class="search-form">
       <input
         class="input"
         id="searchQuery"
@@ -21,10 +22,11 @@
         autocomplete="off"
         placeholder="Search images..."
       />
-      <button class="button" type="submit">Search</button>
+      <button aria-label="Submit" class="button" type="submit">Search</button>
     </form>
 
     <ul class="gallery js-gallery"></ul>
+    <div id="watch_end_of_document"></div>
 
     <div class="lightbox js-lightbox">
       <div class="lightbox__overlay"></div>
@@ -37,6 +39,7 @@
         type="button"
         class="lightbox__button"
         data-action="close-lightbox"
+        aria-label="Close"
       ></button>
     </div>
     <a class="arrow" href="#up">

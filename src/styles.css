@@ -13,6 +13,18 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
+h1 {
+  text-align: center;
+  margin: 0;
+}
+
+li {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
 
 .search-form {
   display: flex;
@@ -20,6 +32,7 @@ body {
   padding: 8px;
   margin-bottom: 24px;
 }
+
 .input {
   border-radius: 4px;
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -57,11 +70,12 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 10px 0;
+  padding: 5px 0;
+  margin: 0;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  min-height: 20px;
+  min-height: 15px;
   border: 1px solid rgba(16, 186, 174, 0.98);
   border-radius: 2px;
   background-color: rgba(122, 214, 207, 0.5);
@@ -70,7 +84,6 @@ body {
 .stats-item {
   display: flex;
   align-items: center;
-  margin: 7px 0;
 }
 
 /* Gallery */
@@ -161,8 +174,8 @@ body {
 
 .lightbox__button {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 20px;
+  right: 30px;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -31,7 +31,6 @@ refs.userSearch.addEventListener('submit', onSearch);
 function onSearch(e) {
    
     e.preventDefault();
-
     picturesApiService.query = e.currentTarget.elements.query.value;
 
     if (picturesApiService.query === '') {
@@ -41,10 +40,9 @@ function onSearch(e) {
     picturesApiService.resetPage();
     clearPicturesContainer();
     fetchImages();
+    observer.observe(document.getElementById("watch_end_of_document"));
 
 }
-
-
 
 function errorMessage(message) {
     error({
@@ -66,55 +64,6 @@ function appendImagesMarkup(images) {
 function clearPicturesContainer() {
     refs.galleryEl.innerHTML = '';
 }
-
-
-const images = refs.images;
-const options = {
-    threshold: 0
-};
-
-const observer = new IntersectionObserver(function (entries, self) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            picturesApiService.fetchImages(entry.target);
-        }
-        
-        // Stop watching and load the image
-        self.unobserve(entry.target);
-    
-    });
-}, options);
-
-images.forEach(image => {
-    observer.observe(image);
-});
-
-
-// const images = refs.images;
-// const options = {
-//     threshold: 0
-// };
-
-// const observer = new IntersectionObserver(function (entries, self) {
-//     entries.forEach(entry => {
-//         if (entry.isIntersecting) {
-//             preloadImage(entry.target);
-//             // Stop watching and load the image
-//             self.unobserve(entry.target);
-//         }
-//     });
-// }, options);
-
-// images.forEach(image => {
-//     observer.observe(image);
-// });
-
-// function preloadImage(img) {
-//     const src = img.getAttribute('data-source');
-//     if (!src) { return; }
-//     img.src = src;
-// }
-
 
 // modal open & close 
 refs.galleryEl.addEventListener('click', onGalleryItemClick);
@@ -168,3 +117,18 @@ function onEscKeyPress(event) {
     onCloseModal();
   }
 }
+
+
+// IntersectionObserver
+const options = {
+    threshold: 0
+};
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return;
+        }
+        fetchImages();
+    });
+}, options);
